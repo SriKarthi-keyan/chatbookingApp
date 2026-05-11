@@ -1,5 +1,5 @@
 import { getDistance } from 'geolib';
-import { MatchedVendor, StoredLocation, Vendor } from '../models';
+import { MatchedVendor, StoredLocation, Vendor } from '../../core/models';
 
 export function matchVendorsByDistance(
   vendors: Vendor[],

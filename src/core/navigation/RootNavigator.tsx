@@ -1,11 +1,11 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { RoleSelectionScreen } from '../screens/auth/RoleSelectionScreen';
-import { UserLoginScreen } from '../screens/auth/UserLoginScreen';
-import { UserRegisterScreen } from '../screens/auth/UserRegisterScreen';
-import { VendorLoginScreen } from '../screens/auth/VendorLoginScreen';
-import { VendorRegisterScreen } from '../screens/auth/VendorRegisterScreen';
-import { colors } from '../theme/colors';
+import { RoleSelectionScreen } from '../../features/auth/RoleSelectionScreen';
+import { UserLoginScreen } from '../../features/auth/UserLoginScreen';
+import { UserRegisterScreen } from '../../features/auth/UserRegisterScreen';
+import { VendorLoginScreen } from '../../features/auth/VendorLoginScreen';
+import { VendorRegisterScreen } from '../../features/auth/VendorRegisterScreen';
+import { colors } from '../../shared/theme/colors';
 import { RootStackParamList } from './types';
 import { UserNavigator } from './UserNavigator';
 import { VendorTabNavigator } from './VendorTabNavigator';

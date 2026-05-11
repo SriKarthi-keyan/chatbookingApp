@@ -1,6 +1,6 @@
 import React from 'react';
-import { TabBarImage } from '../components/TabBarImage';
-import { Images } from '../assets/images';
+import { TabBarImage } from '../../shared/components/TabBarImage';
+import { Images } from '../../shared/assets/images';
 
 /** Shared PNG tab icons — used by both user and vendor bottom tabs. */
 

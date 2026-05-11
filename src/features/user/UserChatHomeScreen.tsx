@@ -8,19 +8,19 @@ import {
   Send,
 } from 'react-native-gifted-chat';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
-import { VendorMatchCard } from '../../components/VendorMatchCard';
-import { detectServiceRule, findNearbyMatchingVendors } from '../../chatbot/matchService';
-import { UserTabWithStackNavigation } from '../../navigation/types';
-import { getCurrentPositionWithPermission } from '../../services/locationService';
-import { locationRepository } from '../../storage/locationRepository';
-import { useAuthStore } from '../../store/authStore';
-import { useChatStore } from '../../store/chatStore';
-import { useVendorsStore } from '../../store/vendorsStore';
-import { MatchedVendor } from '../../models';
-import { colors } from '../../theme/colors';
-import { spacing } from '../../theme/spacing';
-import { createId } from '../../utils/id';
-import { Images } from '../../assets/images';
+import { VendorMatchCard } from '../../shared/components/VendorMatchCard';
+import { detectServiceRule, findNearbyMatchingVendors } from '../chatbot/matchService';
+import { UserTabWithStackNavigation } from '../../core/navigation/types';
+import { getCurrentPositionWithPermission } from '../../core/services/locationService';
+import { locationRepository } from '../../core/storage/locationRepository';
+import { useAuthStore } from '../../core/store/authStore';
+import { useChatStore } from '../../core/store/chatStore';
+import { useVendorsStore } from '../../core/store/vendorsStore';
+import { MatchedVendor } from '../../core/models';
+import { colors } from '../../shared/theme/colors';
+import { spacing } from '../../shared/theme/spacing';
+import { createId } from '../../shared/utils/id';
+import { Images } from '../../shared/assets/images';
 
 type ChatMessage = IMessage & {
   custom?: { vendors?: MatchedVendor[] };

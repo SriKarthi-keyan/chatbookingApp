@@ -3,10 +3,10 @@ import { ActivityIndicator, StyleSheet, View } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { NavigationContainer, DarkTheme, Theme } from '@react-navigation/native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { RootNavigator } from './src/navigation/RootNavigator';
-import { bootstrapStores } from './src/store/bootstrap';
-import { hydrateJsonStorage } from './src/storage/nativeStorage';
-import { colors } from './src/theme/colors';
+import { RootNavigator } from './src/core/navigation/RootNavigator';
+import { bootstrapStores } from './src/core/store/bootstrap';
+import { hydrateJsonStorage } from './src/core/storage/nativeStorage';
+import { colors } from './src/shared/theme/colors';
 
 const navigationTheme: Theme = {
   ...DarkTheme,

@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
-import { locationRepository } from '../storage/locationRepository';
-import { getCurrentPositionWithPermission } from '../services/locationService';
+import { locationRepository } from '../../core/storage/locationRepository';
+import { getCurrentPositionWithPermission } from '../../core/services/locationService';
 
 export function useUserLocationSync(userId: string | undefined) {
   const [loading, setLoading] = useState(false);

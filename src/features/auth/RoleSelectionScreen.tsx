@@ -2,12 +2,12 @@ import React from 'react';
 import { Pressable, StyleSheet, Text, View, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Animated, { FadeInUp } from 'react-native-reanimated';
-import { Screen } from '../../components/Screen';
-import { colors } from '../../theme/colors';
-import { radii, spacing } from '../../theme/spacing';
-import { typography } from '../../theme/typography';
-import { RootNavigation } from '../../navigation/types';
-import { Images } from '../../assets/images';
+import { Screen } from '../../shared/components/Screen';
+import { colors } from '../../shared/theme/colors';
+import { radii, spacing } from '../../shared/theme/spacing';
+import { typography } from '../../shared/theme/typography';
+import { RootNavigation } from '../../core/navigation/types';
+import { Images } from '../../shared/assets/images';
 
 
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);

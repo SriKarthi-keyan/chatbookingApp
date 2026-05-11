@@ -6,12 +6,12 @@ import {
   NearbyTabIcon,
   ProfileTabIcon,
 } from './tabBarIcons';
-import { UserBookingsScreen } from '../screens/user/UserBookingsScreen';
-import { UserChatHomeScreen } from '../screens/user/UserChatHomeScreen';
-import { UserProfileScreen } from '../screens/user/UserProfileScreen';
-import { NearbyVendorsScreen } from '../screens/user/NearbyVendorsScreen';
+import { UserBookingsScreen } from '../../features/user/UserBookingsScreen';
+import { UserChatHomeScreen } from '../../features/user/UserChatHomeScreen';
+import { UserProfileScreen } from '../../features/user/UserProfileScreen';
+import { NearbyVendorsScreen } from '../../features/user/NearbyVendorsScreen';
 import { UserTabParamList } from './types';
-import { colors } from '../theme/colors';
+import { colors } from '../../shared/theme/colors';
 
 const Tab = createBottomTabNavigator<UserTabParamList>();
 

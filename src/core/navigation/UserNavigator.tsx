@@ -1,9 +1,9 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { BookingCreateScreen } from '../screens/user/BookingCreateScreen';
+import { BookingCreateScreen } from '../../features/user/BookingCreateScreen';
 import { UserTabNavigator } from './UserTabNavigator';
 import { UserStackParamList } from './types';
-import { colors } from '../theme/colors';
+import { colors } from '../../shared/theme/colors';
 
 const Stack = createNativeStackNavigator<UserStackParamList>();
 

@@ -4,16 +4,16 @@ import DateTimePicker, {
   DateTimePickerAndroid,
 } from '@react-native-community/datetimepicker';
 import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
-import { AppButton } from '../../components/AppButton';
-import { Screen } from '../../components/Screen';
-import { UserStackParamList } from '../../navigation/types';
-import { useAuthStore } from '../../store/authStore';
-import { useBookingsStore } from '../../store/bookingsStore';
-import { useVendorsStore } from '../../store/vendorsStore';
-import { colors } from '../../theme/colors';
-import { spacing } from '../../theme/spacing';
-import { typography } from '../../theme/typography';
-import { createId } from '../../utils/id';
+import { AppButton } from '../../shared/components/AppButton';
+import { Screen } from '../../shared/components/Screen';
+import { UserStackParamList } from '../../core/navigation/types';
+import { useAuthStore } from '../../core/store/authStore';
+import { useBookingsStore } from '../../core/store/bookingsStore';
+import { useVendorsStore } from '../../core/store/vendorsStore';
+import { colors } from '../../shared/theme/colors';
+import { spacing } from '../../shared/theme/spacing';
+import { typography } from '../../shared/theme/typography';
+import { createId } from '../../shared/utils/id';
 
 function pad(n: number): string {
   return n < 10 ? `0${n}` : `${n}`;

@@ -10,18 +10,18 @@ import {
   View,
 } from 'react-native';
 import { HeaderHeightContext } from '@react-navigation/elements';
-import { VendorMatchCard } from '../../components/VendorMatchCard';
-import { EmptyState } from '../../components/EmptyState';
-import { AppButton } from '../../components/AppButton';
-import { findAllNearbyVendors } from '../../chatbot/matchService';
-import { useUserLocationSync } from '../../hooks/useUserLocationSync';
-import { UserTabWithStackNavigation } from '../../navigation/types';
-import { locationRepository } from '../../storage/locationRepository';
-import { useAuthStore } from '../../store/authStore';
+import { VendorMatchCard } from '../../shared/components/VendorMatchCard';
+import { EmptyState } from '../../shared/components/EmptyState';
+import { AppButton } from '../../shared/components/AppButton';
+import { findAllNearbyVendors } from '../chatbot/matchService';
+import { useUserLocationSync } from '../../shared/hooks/useUserLocationSync';
+import { UserTabWithStackNavigation } from '../../core/navigation/types';
+import { locationRepository } from '../../core/storage/locationRepository';
+import { useAuthStore } from '../../core/store/authStore';
 import { useNavigation } from '@react-navigation/native';
-import { useVendorsStore } from '../../store/vendorsStore';
-import { colors } from '../../theme/colors';
-import { radii, spacing } from '../../theme/spacing';
+import { useVendorsStore } from '../../core/store/vendorsStore';
+import { colors } from '../../shared/theme/colors';
+import { radii, spacing } from '../../shared/theme/spacing';
 export function NearbyVendorsScreen() {
   const navigation = useNavigation<UserTabWithStackNavigation>();
   const userId = useAuthStore(s => s.session?.userId);

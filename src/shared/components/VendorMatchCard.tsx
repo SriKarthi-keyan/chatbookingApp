@@ -3,7 +3,7 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 import Animated, { FadeInDown } from 'react-native-reanimated';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { ProfileAvatar } from './ProfileAvatar';
-import { MatchedVendor } from '../models';
+import { MatchedVendor } from '../../core/models';
 import { colors } from '../theme/colors';
 import { radii, spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';

@@ -1,5 +1,5 @@
-import { MatchedVendor, StoredLocation, Vendor } from '../models';
-import { matchVendorsByDistance } from '../utils/geo';
+import { MatchedVendor, StoredLocation, Vendor } from '../../core/models';
+import { matchVendorsByDistance } from '../../shared/utils/geo';
 
 export interface ServiceRule {
   slug: string;

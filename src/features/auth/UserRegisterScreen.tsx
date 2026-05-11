@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 import { Alert, StyleSheet, Text } from 'react-native';
 import { Controller, useForm } from 'react-hook-form';
 import { CommonActions, useNavigation } from '@react-navigation/native';
-import { AppButton } from '../../components/AppButton';
-import { AppTextField } from '../../components/AppTextField';
-import { FormKeyboardScroll } from '../../components/FormKeyboardScroll';
-import { Screen } from '../../components/Screen';
-import { createId } from '../../utils/id';
-import { useUsersStore } from '../../store/usersStore';
-import { typography } from '../../theme/typography';
-import { spacing } from '../../theme/spacing';
-import { colors } from '../../theme/colors';
-import { RootNavigation } from '../../navigation/types';
+import { AppButton } from '../../shared/components/AppButton';
+import { AppTextField } from '../../shared/components/AppTextField';
+import { FormKeyboardScroll } from '../../shared/components/FormKeyboardScroll';
+import { Screen } from '../../shared/components/Screen';
+import { createId } from '../../shared/utils/id';
+import { useUsersStore } from '../../core/store/usersStore';
+import { typography } from '../../shared/theme/typography';
+import { spacing } from '../../shared/theme/spacing';
+import { colors } from '../../shared/theme/colors';
+import { RootNavigation } from '../../core/navigation/types';
 
 type FormValues = {
   name: string;

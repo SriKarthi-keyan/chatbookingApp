@@ -2,45 +2,53 @@ import React, { useState } from 'react';
 import { Alert, StyleSheet, Text, View } from 'react-native';
 import { Controller, useForm } from 'react-hook-form';
 import { CommonActions, useNavigation } from '@react-navigation/native';
-import { AppButton } from '../../components/AppButton';
-import { AppTextField } from '../../components/AppTextField';
-import { FormKeyboardScroll } from '../../components/FormKeyboardScroll';
-import { Screen } from '../../components/Screen';
-import { useAuthStore } from '../../store/authStore';
-import { useVendorsStore } from '../../store/vendorsStore';
-import { colors } from '../../theme/colors';
-import { spacing } from '../../theme/spacing';
-import { typography } from '../../theme/typography';
-import { RootNavigation } from '../../navigation/types';
+import { AppButton } from '../../shared/components/AppButton';
+import { AppTextField } from '../../shared/components/AppTextField';
+import { FormKeyboardScroll } from '../../shared/components/FormKeyboardScroll';
+import { Screen } from '../../shared/components/Screen';
+import { useAuthStore } from '../../core/store/authStore';
+import { useUsersStore } from '../../core/store/usersStore';
+import { getCurrentPositionWithPermission } from '../../core/services/locationService';
+import { locationRepository } from '../../core/storage/locationRepository';
+import { colors } from '../../shared/theme/colors';
+import { spacing } from '../../shared/theme/spacing';
+import { typography } from '../../shared/theme/typography';
+import { RootNavigation } from '../../core/navigation/types';
 
 type FormValues = {
   mobile: string;
   password: string;
 };
 
-export function VendorLoginScreen() {
+export function UserLoginScreen() {
   const navigation = useNavigation<RootNavigation>();
   const setSession = useAuthStore(s => s.setSession);
-  const findByMobile = useVendorsStore(s => s.findByMobile);
+  const findByMobile = useUsersStore(s => s.findByMobile);
   const [loading, setLoading] = useState(false);
 
   const { control, handleSubmit } = useForm<FormValues>({
     defaultValues: { mobile: '', password: '' },
   });
 
-  const onSubmit = handleSubmit(values => {
+  const onSubmit = handleSubmit(async values => {
     setLoading(true);
     try {
-      const vendor = findByMobile(values.mobile.trim());
-      if (!vendor || vendor.password !== values.password) {
+      const user = findByMobile(values.mobile.trim());
+      if (!user || user.password !== values.password) {
         Alert.alert('Sign in failed', 'Mobile or password is incorrect.');
         return;
       }
-      setSession({ role: 'vendor', vendorId: vendor.id });
+      setSession({ role: 'user', userId: user.id });
+      try {
+        const coords = await getCurrentPositionWithPermission();
+        locationRepository.setForUser(user.id, coords);
+      } catch {
+        // Location is optional at login; Assistant will prompt later.
+      }
       navigation.dispatch(
         CommonActions.reset({
           index: 0,
-          routes: [{ name: 'VendorApp' }],
+          routes: [{ name: 'UserApp' }],
         }),
       );
     } finally {
@@ -51,9 +59,9 @@ export function VendorLoginScreen() {
   return (
     <Screen>
       <FormKeyboardScroll contentContainerStyle={styles.scroll}>
-          <Text style={[typography.subtitle, styles.heading]}>Vendor sign in</Text>
+          <Text style={[typography.subtitle, styles.heading]}>Welcome back</Text>
           <Text style={[typography.body, styles.lead]}>
-            Access your dashboard and bookings stored locally.
+            Sign in with the mobile number you registered on this device.
           </Text>
 
           <Controller
@@ -68,7 +76,6 @@ export function VendorLoginScreen() {
                 onBlur={onBlur}
                 onChangeText={onChange}
                 error={fieldState.error?.message}
-                maxLength={10}
               />
             )}
           />
@@ -92,9 +99,9 @@ export function VendorLoginScreen() {
           <AppButton label="Sign in" onPress={onSubmit} loading={loading} />
 
           <View style={styles.inline}>
-            <Text style={styles.muted}>New vendor?</Text>
-            <Text style={styles.link} onPress={() => navigation.navigate('VendorRegister')}>
-              Register
+            <Text style={styles.muted}>New user?</Text>
+            <Text style={styles.link} onPress={() => navigation.navigate('UserRegister')}>
+              Create account
             </Text>
           </View>
       </FormKeyboardScroll>

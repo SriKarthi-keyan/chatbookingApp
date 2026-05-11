@@ -1,10 +1,10 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { BookingsTabIcon, ProfileTabIcon } from './tabBarIcons';
-import { VendorDashboardScreen } from '../screens/vendor/VendorDashboardScreen';
-import { VendorProfileScreen } from '../screens/vendor/VendorProfileScreen';
+import { VendorDashboardScreen } from '../../features/vendor/VendorDashboardScreen';
+import { VendorProfileScreen } from '../../features/vendor/VendorProfileScreen';
 import { VendorTabParamList } from './types';
-import { colors } from '../theme/colors';
+import { colors } from '../../shared/theme/colors';
 
 const Tab = createBottomTabNavigator<VendorTabParamList>();
 

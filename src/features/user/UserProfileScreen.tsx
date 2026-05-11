@@ -1,15 +1,15 @@
 import React from 'react';
 import { Alert, StyleSheet, Text, View } from 'react-native';
 import { CommonActions, useNavigation } from '@react-navigation/native';
-import { AppButton } from '../../components/AppButton';
-import { ProfileAvatar } from '../../components/ProfileAvatar';
-import { Screen } from '../../components/Screen';
-import { useAuthStore } from '../../store/authStore';
-import { useUsersStore } from '../../store/usersStore';
-import { colors } from '../../theme/colors';
-import { spacing } from '../../theme/spacing';
-import { typography } from '../../theme/typography';
-import { RootNavigation } from '../../navigation/types';
+import { AppButton } from '../../shared/components/AppButton';
+import { ProfileAvatar } from '../../shared/components/ProfileAvatar';
+import { Screen } from '../../shared/components/Screen';
+import { useAuthStore } from '../../core/store/authStore';
+import { useUsersStore } from '../../core/store/usersStore';
+import { colors } from '../../shared/theme/colors';
+import { spacing } from '../../shared/theme/spacing';
+import { typography } from '../../shared/theme/typography';
+import { RootNavigation } from '../../core/navigation/types';
 
 export function UserProfileScreen() {
   const navigation = useNavigation<RootNavigation>();

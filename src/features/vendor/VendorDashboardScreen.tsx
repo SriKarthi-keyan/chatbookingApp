@@ -1,14 +1,14 @@
 import React, { useMemo, useState } from 'react';
 import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { EmptyState } from '../../components/EmptyState';
-import { Booking, BookingStatus } from '../../models';
-import { useAuthStore } from '../../store/authStore';
-import { useBookingsStore } from '../../store/bookingsStore';
-import { useUsersStore } from '../../store/usersStore';
-import { colors } from '../../theme/colors';
-import { radii, spacing } from '../../theme/spacing';
-import { typography } from '../../theme/typography';
+import { EmptyState } from '../../shared/components/EmptyState';
+import { Booking, BookingStatus } from '../../core/models';
+import { useAuthStore } from '../../core/store/authStore';
+import { useBookingsStore } from '../../core/store/bookingsStore';
+import { useUsersStore } from '../../core/store/usersStore';
+import { colors } from '../../shared/theme/colors';
+import { radii, spacing } from '../../shared/theme/spacing';
+import { typography } from '../../shared/theme/typography';
 
 type FilterKey = 'pending' | 'accepted' | 'completed' | 'all';
 
