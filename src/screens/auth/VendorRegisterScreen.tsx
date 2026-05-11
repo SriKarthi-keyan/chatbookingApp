@@ -116,102 +116,102 @@ export function VendorRegisterScreen() {
     <Screen>
       <LoadingOverlay visible={busy} />
       <FormKeyboardScroll contentContainerStyle={styles.scroll}>
-          <Text style={[typography.subtitle, styles.heading]}>Vendor profile</Text>
-          <Text style={[typography.body, styles.lead]}>
-            We capture your GPS automatically when you submit. No manual coordinates.
+        <Text style={[typography.subtitle, styles.heading]}>Vendor profile</Text>
+        <Text style={[typography.body, styles.lead]}>
+          We capture your GPS automatically when you submit.
+        </Text>
+
+        <Pressable style={styles.imagePicker} onPress={pickImage}>
+          <ProfileAvatar uri={profileUri} size={120} />
+          <Text style={styles.previewLabel}>
+            {profileUri ? 'Tap to change photo' : 'Tap to add your photo'}
           </Text>
+        </Pressable>
 
-          <Pressable style={styles.imagePicker} onPress={pickImage}>
-            <ProfileAvatar uri={profileUri} size={120} />
-            <Text style={styles.previewLabel}>
-              {profileUri ? 'Tap to change photo' : 'Tap to add your photo'}
-            </Text>
-          </Pressable>
+        <Controller
+          control={control}
+          name="name"
+          rules={{ required: 'Required' }}
+          render={({ field: { onChange, onBlur, value }, fieldState }) => (
+            <AppTextField
+              label="Vendor name"
+              value={value}
+              onBlur={onBlur}
+              onChangeText={onChange}
+              error={fieldState.error?.message}
+            />
+          )}
+        />
 
-          <Controller
-            control={control}
-            name="name"
-            rules={{ required: 'Required' }}
-            render={({ field: { onChange, onBlur, value }, fieldState }) => (
-              <AppTextField
-                label="Vendor name"
-                value={value}
-                onBlur={onBlur}
-                onChangeText={onChange}
-                error={fieldState.error?.message}
-              />
-            )}
-          />
+        <Controller
+          control={control}
+          name="mobile"
+          rules={{ required: 'Required' }}
+          render={({ field: { onChange, onBlur, value }, fieldState }) => (
+            <AppTextField
+              label="Mobile number"
+              keyboardType="phone-pad"
+              value={value}
+              onBlur={onBlur}
+              onChangeText={onChange}
+              error={fieldState.error?.message}
+            />
+          )}
+        />
 
-          <Controller
-            control={control}
-            name="mobile"
-            rules={{ required: 'Required' }}
-            render={({ field: { onChange, onBlur, value }, fieldState }) => (
-              <AppTextField
-                label="Mobile number"
-                keyboardType="phone-pad"
-                value={value}
-                onBlur={onBlur}
-                onChangeText={onChange}
-                error={fieldState.error?.message}
-              />
-            )}
-          />
+        <Controller
+          control={control}
+          name="password"
+          rules={{ required: 'Required', minLength: { value: 6, message: 'Min 6 chars' } }}
+          render={({ field: { onChange, onBlur, value }, fieldState }) => (
+            <AppTextField
+              label="Password"
+              secureTextEntry
+              value={value}
+              onBlur={onBlur}
+              onChangeText={onChange}
+              error={fieldState.error?.message}
+            />
+          )}
+        />
 
-          <Controller
-            control={control}
-            name="password"
-            rules={{ required: 'Required', minLength: { value: 6, message: 'Min 6 chars' } }}
-            render={({ field: { onChange, onBlur, value }, fieldState }) => (
-              <AppTextField
-                label="Password"
-                secureTextEntry
-                value={value}
-                onBlur={onBlur}
-                onChangeText={onChange}
-                error={fieldState.error?.message}
-              />
-            )}
-          />
+        <Controller
+          control={control}
+          name="address"
+          rules={{ required: 'Required' }}
+          render={({ field: { onChange, onBlur, value }, fieldState }) => (
+            <AppTextField
+              label="Address"
+              multiline
+              value={value}
+              onBlur={onBlur}
+              onChangeText={onChange}
+              error={fieldState.error?.message}
+            />
+          )}
+        />
 
-          <Controller
-            control={control}
-            name="address"
-            rules={{ required: 'Required' }}
-            render={({ field: { onChange, onBlur, value }, fieldState }) => (
-              <AppTextField
-                label="Address"
-                multiline
-                value={value}
-                onBlur={onBlur}
-                onChangeText={onChange}
-                error={fieldState.error?.message}
-              />
-            )}
-          />
+        <Controller
+          control={control}
+          name="serviceType"
+          rules={{ required: 'Required' }}
+          render={({ field: { onChange, onBlur, value }, fieldState }) => (
+            <AppTextField
+              label="Service type"
+              placeholder="e.g. Electrician, AC repair"
+              value={value}
+              onBlur={onBlur}
+              onChangeText={onChange}
+              error={fieldState.error?.message}
+            />
+          )}
+        />
 
-          <Controller
-            control={control}
-            name="serviceType"
-            rules={{ required: 'Required' }}
-            render={({ field: { onChange, onBlur, value }, fieldState }) => (
-              <AppTextField
-                label="Service type"
-                placeholder="e.g. Electrician, AC repair"
-                value={value}
-                onBlur={onBlur}
-                onChangeText={onChange}
-                error={fieldState.error?.message}
-              />
-            )}
-          />
-
-          <AppButton
-            label="Save vendor (capture GPS)"
-            onPress={onSubmit}
-            disabled={!formState.isValid || !profileUri}
-          />
+        <AppButton
+          label="Save vendor (capture GPS)"
+          onPress={onSubmit}
+          disabled={!formState.isValid || !profileUri}
+        />
       </FormKeyboardScroll>
     </Screen>
   );
