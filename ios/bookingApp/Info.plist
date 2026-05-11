@@ -28,14 +28,19 @@
 	<true/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
-	  <!-- Do not change NSAllowsArbitraryLoads to true, or you will risk app rejection! -->
 		<key>NSAllowsArbitraryLoads</key>
 		<false/>
 		<key>NSAllowsLocalNetworking</key>
 		<true/>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string>LocalBook uses your location to sort nearby vendors and improve offline matching.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>LocalBook needs camera access to capture your vendor profile photo.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>LocalBook needs photo library access to set your vendor profile image.</string>
+	<key>RCTNewArchEnabled</key>
+	<true/>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>

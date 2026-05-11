@@ -1,0 +1,18 @@
+export const colors = {
+  background: '#0B141A',
+  surface: '#111B21',
+  surfaceElevated: '#1F2C34',
+  card: '#1F2C34',
+  border: '#2A3942',
+  primary: '#25D366',
+  primaryMuted: '#1EAA52',
+  accent: '#53BDEB',
+  textPrimary: '#E9EDEF',
+  textSecondary: '#8696A0',
+  textMuted: '#667781',
+  danger: '#F15C6D',
+  warning: '#FFB020',
+  bubbleUser: '#005C4B',
+  bubbleBot: '#1F2C34',
+  overlay: 'rgba(0,0,0,0.55)',
+};
